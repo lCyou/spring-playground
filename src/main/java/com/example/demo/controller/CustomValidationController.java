@@ -27,6 +27,12 @@ public class CustomValidationController {
     @PostMapping
     public String customValidationPost(@ModelAttribute UserForm form, BindingResult br, Model model){
         System.out.println(form);
+
+        if (br.hasErrors()) {
+            System.out.println("validation failed");
+            model.addAttribute(form);
+            return "form-validation";
+        }
         return "tmp";
     }
 }
