@@ -7,8 +7,16 @@
 <body>
 <h1>input form</h1>
 <form th:action="@{/validation}" method="post" th:object="${userForm}">
-  <input type="text" name="name" th:field="*{name}" /><p th:errors="*{name}"></p><br />
-  <input type="text" name="email" th:field="*{email}" /><p th:errors="*{email}"></p>
+    <label>
+        NAME: <input type="text" name="name" th:field="*{name}" />
+        <span th:errors="*{name}"></span>
+    </label>
+    <br />
+    <label>
+        EMAIL: <input type="text" name="email" th:field="*{email}" />
+        <span th:errors="*{email}"></span>
+    </label>
+    <br />
     <button type="submit">send form</button>
 </form>
 

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.form.UserForm;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +25,7 @@ public class CustomValidationController {
     }
 
     @PostMapping
-    public String customValidationPost(@ModelAttribute UserForm form, BindingResult br, Model model){
+    public String customValidationPost(@Valid @ModelAttribute UserForm form, BindingResult br, Model model){
         System.out.println(form);
 
         if (br.hasErrors()) {
